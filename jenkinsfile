@@ -26,18 +26,18 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            steps {
-                script {
-                    // Run SonarQube Analysis
-                    sh """
-                    mvn sonar:sonar \
-                    -Dsonar.projectkey=taxi-app-0001_taxi \
-                    -Dsonar.organization=taxi-app-0001 \
-                    -Dsonar.host.url=https://sonarcloud.io \
-                    -Dsonar.token=${SONAR_TOKEN}
-                    """
+                steps {
+                    script {
+                        // Run SonarQube Analysis
+                        sh """
+                        mvn sonar:sonar \
+                        -Dsonar.projectkey=taxi-app-0001_taxi \
+                        -Dsonar.organization=taxi-app-0001 \
+                        -Dsonar.host.url=https://sonarcloud.io \
+                        -Dsonar.token=${SONAR_TOKEN}
+                        """
+                    }
                 }
-            }
         }
     }
 }
