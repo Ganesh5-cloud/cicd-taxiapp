@@ -1,0 +1,32 @@
+- hosts: jenkins-slave
+  become: yes
+
+  tasks:
+
+    - name: Update apt
+      apt:
+        update_cache: yes
+
+    - name: Install Java 
+      apt:
+        name:
+          - openjdk-17-jre
+          - docker.io
+        state: present
+
+    - name: Download Maven
+      get_url:
+        url: https://archive.apache.org/dist/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+        dest: /opt/apache-maven.tar.gz
+
+    - name: Extract Maven
+      unarchive:
+        src: /opt/apache-maven.tar.gz
+        dest: /opt
+        remote_src: yes
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
