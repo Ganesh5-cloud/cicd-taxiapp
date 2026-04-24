@@ -36,7 +36,8 @@ pipeline {
                     -Dsonar.projectKey=taxi-app-0001_taxi \
                     -Dsonar.organization=taxi-app-0001 \
                     -Dsonar.host.url=https://sonarcloud.io \
-                    -Dsonar.token=${SONAR_TOKEN}
+                    -Dsonar.token=${SONAR_TOKEN} \
+                    -Dsonar.nodejs.executable=/usr/bin/node
                     """
                 }
             }
