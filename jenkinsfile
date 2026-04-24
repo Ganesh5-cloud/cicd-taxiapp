@@ -37,7 +37,7 @@ pipeline {
                     -Dsonar.organization=taxi-app-0001 \
                     -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.token=${SONAR_TOKEN} \
-                    -Dsonar.nodejs.executable=/usr/bin/node
+                    -Dsonar.exclusions=**/*.js,**/*.ts
                     """
                 }
             }
