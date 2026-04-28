@@ -62,7 +62,7 @@ pipeline {
                     def buildInfo = server.upload(uploadspec)
                     buildInfo.eny.collect()
                     server.publishBuildInfo(buildInfo)
-                    echo '<----------- Jar Publish Ended -------------> '
+                    echo '<----------- Jar Publish Ended ---------------> '
                 }
             }
         }
