@@ -116,7 +116,7 @@ resource "aws_instance" "jenkins_master" {
 
 resource "aws_instance" "jenkins_slave" {
   ami                         = "ami-04680790a315cd58d"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.medium"
   key_name                    = "taxi"
   subnet_id                   = data.aws_subnets.public.ids[0]
   vpc_security_group_ids      = [aws_security_group.demo-sg.id]
